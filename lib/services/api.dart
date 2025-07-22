@@ -47,6 +47,7 @@ static Future<List<Product>> getProduct() async {
           name: e['name'],
           price: e['price'],
           desc: e['desc'],
+          id: e['id'].toString()
         ));
       });
     return products;
@@ -59,4 +60,21 @@ debugPrint("Error in $e");
 return [];
 }
 
-  }
+static updateProduct(id, body) async {
+ final Dio _dio = Dio(); 
+try{
+
+final response = await _dio.put("${baseUrl}update/$id", data: body);
+
+if(response.statusCode == 200) {
+print("Data Updated: ${response.data}");
+}
+else{
+print("Failed to update data");
+}
+
+}catch(e) {
+debugPrint("Error: $e");
+}
+}
+}

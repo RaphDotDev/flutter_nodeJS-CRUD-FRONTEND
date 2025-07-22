@@ -1,14 +1,14 @@
 class Product {
-
+final String? id;
 final String? name;
 final String? price;
 final String? desc;
 
-Product({this.name,this.price, this.desc});
+Product({this.id,this.name,this.price, this.desc});
 
 @override
   String toString() {
-    return 'Product(name: $name, price: $price, desc: $desc)';
+    return 'Product(id: $id, name: $name, price: $price, desc: $desc)';
   }
 
 }

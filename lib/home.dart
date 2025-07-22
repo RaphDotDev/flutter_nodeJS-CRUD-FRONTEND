@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_ui/common/common_appbar.dart';
 import 'package:flutter_application_ui/pages/create_product.dart';
 import 'package:flutter_application_ui/pages/get_product.dart';
+import 'package:flutter_application_ui/pages/update_product.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -26,7 +27,12 @@ class _MyWidgetState extends State<MyWidget> {
       ));
       
        }, child: Text('CREATE')),
-      ElevatedButton(onPressed: () {}, child: Text('UPDATE')),
+      ElevatedButton(onPressed: () {
+       Navigator.push(context, 
+        MaterialPageRoute(
+        builder: (BuildContext context) => const UpdateProduct(),
+      ));
+      }, child: Text('UPDATE')),
       ElevatedButton(onPressed: () {
       
       Navigator.push(context, 
