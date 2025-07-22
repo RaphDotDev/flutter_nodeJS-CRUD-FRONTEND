@@ -1,0 +1,62 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_ui/model/product_model.dart';
+
+class Api {
+static const baseUrl = 'http://192.168.100.199/api/';
+
+ 
+//Create Product
+static Future<void> addProduct(Map pdata) async {
+ late final Dio _dio = Dio();
+  try {
+    final response = await _dio.post("${baseUrl}add_product", data: pdata);
+
+  if(response.statusCode == 200){
+
+   var data = response.data; 
+  debugPrint("Final Product Data: $data");
+
+
+  } else {
+    debugPrint("Failed to get response");
+  }
+
+  }catch(e) {
+  debugPrint("Error: $e");
+  }
+
+
+
+
+  }
+
+static Future<List<Product>> getProduct() async {
+  final Dio _dio = Dio(); 
+
+  List<Product> products = [];
+
+ try {
+    final response = await _dio.get("${baseUrl}get_product");
+
+    if (response.statusCode == 200) {
+      var data = response.data;
+      debugPrint("All Products: $data");
+      data['products'].forEach((e) {
+        products.add(Product(
+          name: e['name'],
+          price: e['price'],
+          desc: e['desc'],
+        ));
+      });
+    return products;
+}else {
+  return [];
+  }
+}catch(e) {
+debugPrint("Error in $e");
+}
+return [];
+}
+
+  }
