@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ui/common/common_appbar.dart';
 import 'package:flutter_application_ui/pages/create_product.dart';
+import 'package:flutter_application_ui/pages/delete_product.dart';
 import 'package:flutter_application_ui/pages/get_product.dart';
 import 'package:flutter_application_ui/pages/update_product.dart';
 
@@ -41,7 +42,14 @@ class _MyWidgetState extends State<MyWidget> {
       ));
       
       }, child: Text('READ')),
-      ElevatedButton(onPressed: () {}, child: Text('DELETE'))
+      ElevatedButton(onPressed: () {
+      
+       Navigator.push(context, 
+        MaterialPageRoute(
+        builder: (BuildContext context) => const DeleteScreen(),
+      ));
+      
+      }, child: Text('DELETE'))
       ],
       
        ),
