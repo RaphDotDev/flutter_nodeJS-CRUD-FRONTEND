@@ -77,4 +77,27 @@ print("Failed to update data");
 debugPrint("Error: $e");
 }
 }
+
+static deleeteProduct(id) async {
+
+final Dio _dio = Dio();
+try {
+final response = await _dio.post("${baseUrl}delete/$id");
+
+if(response.statusCode == 204) {
+
+print("Deleted: ${response.data}");
+
+}
+else {
+
+print("unsuccessfully deleted");
+}
+}catch(e) {
+
+debugPrint("Error: $e");
+
+}
+}
+
 }
