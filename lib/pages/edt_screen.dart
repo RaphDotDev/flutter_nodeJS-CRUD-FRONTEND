@@ -62,9 +62,9 @@ descController.text = widget.data.desc.toString();
       ElevatedButton(onPressed: () {
 
       Api.updateProduct(widget.data.id, {
-      "name":nameController.text,
-      "desc": descController.text,
-      "price": priceController.text,
+      "pname":nameController.text,
+      "pdesc": descController.text,
+      "pprice": priceController.text,
       "id": widget.data.id
       });
       
